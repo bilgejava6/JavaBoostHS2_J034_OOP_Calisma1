@@ -4,10 +4,9 @@ import com.muhammet.utility.Kampanya;
 import com.muhammet.utility.StokTuru;
 import com.muhammet.utility.UrunState;
 
-import java.util.UUID;
 
-public class Urun {
-    private String id;
+public class Urun extends BaseEntity{
+
     private String ad;
     private String marka;
     private String model;
@@ -16,17 +15,16 @@ public class Urun {
     private double fiyat;
     private int kdv;
     private int stokAdedi;
-
     private UrunState urunState;
     private StokTuru stokTuru;
     private Kampanya kampanya;
 
     public Urun() {
-        this.id = UUID.randomUUID().toString();
+
     }
 
     public Urun(String ad, String marka, String model, String kategori, String aciklama, double fiyat, int kdv, int stokAdedi, UrunState urunState, StokTuru stokTuru, Kampanya kampanya) {
-        this.id = UUID.randomUUID().toString();
+
         this.ad = ad;
         this.marka = marka;
         this.model = model;
@@ -43,7 +41,7 @@ public class Urun {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Urun{");
-        sb.append("id='").append(id).append('\'');
+        sb.append("id='").append(getUuid()).append('\'');
         sb.append(", ad='").append(ad).append('\'');
         sb.append(", marka='").append(marka).append('\'');
         sb.append(", model='").append(model).append('\'');
@@ -59,9 +57,6 @@ public class Urun {
         return sb.toString();
     }
 
-    public String getId() {
-        return id;
-    }
 
     public String getAd() {
         return ad;
